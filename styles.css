@@ -319,6 +319,15 @@ main { padding: 0; }
     text-align: center;
 }
 
+.site-footer a {
+    color: inherit;       /* keeps the text color */
+    text-decoration: none; /* removes underline */
+}
+.site-footer a:hover {
+    color: inherit;       /* optional: prevents hover color change */
+}
+
+
 .pop { transition: transform 0.18s ease; }
 .pop:hover { transform: translateY(-6px); }
 
