@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>About: Chase Smith</title>
 
-    <!-- fonts & styles -->
+    <!-- Fonts & Styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <link href="styles.css" rel="stylesheet" />
 
-    <!-- app script (optional) -->
+    <!-- App Script -->
     <script src="main.js" defer></script>
 </head>
-
 <body>
 <div class="wrap">
     <section class="card">
+
+        <!-- Header -->
         <header>
-            <!-- avatar (clickable) -->
             <div
                     class="avatar"
                     id="avatar"
@@ -26,35 +26,37 @@
                     style="background-image: url('assets/pfp.png')"
             ></div>
 
-            <div class="header-info" style="flex:1">
+            <div class="header-info">
                 <h1>
                     Chase Smith
                     <span class="muted-username">(GhostHasGone)</span>
                 </h1>
-
-                <!-- header subtitle -->
                 <div class="sub">
                     IT Systems &amp; Cybersecurity Student
                     <br />
                     <span class="inline-icon">Monster Addict</span>
                 </div>
             </div>
-
         </header>
 
+        <!-- Content Grid -->
         <div class="grid">
-            <!-- main column -->
+
+            <!-- Main Column -->
             <main>
-                <div class="about">
-                    <h3>About me</h3>
+                <!-- About -->
+                <section class="about">
+                    <h3>About Me</h3>
                     <p>
                         I build stuff, (mostly) fix stuff, and sometimes break things on purpose.
-                        When I'm off the clock I'm gaming, coding dumb little things that nobody asked for, and sipping too many white Monsters.
+                        When I'm off the clock I'm gaming, coding dumb little things nobody asked for,
+                        and sipping too many white Monsters.
                     </p>
 
+                    <!-- Fun Stats -->
                     <div class="fun">
                         <div class="stat">
-                            <strong><img class="stat-emoji" src="assets/monsteremoji.png" alt="monster" /></strong>
+                            <strong><img class="stat-emoji" src="assets/monsteremoji.png" alt="Monster" /></strong>
                             <span>2 cans/day</span>
                         </div>
 
@@ -68,11 +70,11 @@
                             <span>Silver V</span>
                         </div>
                     </div>
-                </div>
+                </section>
 
+                <!-- Favorites -->
                 <section id="favorites">
                     <h3>Favorites</h3>
-
                     <div class="favorites">
                         <div class="fav pop">
                             <img src="assets/musiclist.png" alt="music" />
@@ -109,9 +111,10 @@
                 </section>
             </main>
 
-            <!-- sidebar -->
+            <!-- Sidebar -->
             <aside class="sidebar">
                 <div class="card sidebar-card">
+
                     <!-- Now Section -->
                     <div class="sidebar-section now-block">
                         <div class="now">
@@ -120,7 +123,6 @@
                         </div>
                     </div>
 
-                    <!-- Divider -->
                     <hr class="sidebar-divider" />
 
                     <!-- Top 5 -->
@@ -135,20 +137,21 @@
                         </ol>
                     </div>
 
-                    <!-- Divider -->
                     <hr class="sidebar-divider" />
 
                     <!-- Contact -->
                     <div class="sidebar-section contact">
                         <h4>Contact</h4>
-                        <p class="muted-text"><strong>Discord:</strong> ghosthasgone<br>
-                        <strong>Email:</strong> ghosthasgone2107@gmail.com</p>
+                        <p class="muted-text">
+                            <strong>Discord:</strong> ghosthasgone<br>
+                            <strong>Email:</strong> ghosthasgone2107@gmail.com
+                        </p>
                     </div>
                 </div>
             </aside>
-
         </div>
 
+        <!-- Footer -->
         <footer class="site-footer">itsaboutme.site © 2025</footer>
     </section>
 </div>

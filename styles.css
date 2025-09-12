@@ -33,7 +33,7 @@
 body {
     margin: 0;
     min-height: 100vh;
-    display: flex;
+    display: flex;                /* center on desktop */
     align-items: center;
     justify-content: center;
     background: linear-gradient(180deg, var(--bg) 0%, #071229 100%);
@@ -47,18 +47,26 @@ body {
 .wrap {
     max-width: var(--maxw);
     width: 100%;
-    padding: var(--space-lg);
 }
 
-/* Mobile override: let content flow naturally */
-@media (max-width: 768px) {
+/* ============================================================
+   Mobile behavior (scrollable instead of clipped)
+   ============================================================ */
+@media (max-width: 900px) {
     body {
-        display: block;
+        display: block; /* allow flow */
         padding: var(--space-lg) var(--space);
     }
     .wrap {
         margin: 0 auto;
+        padding: 0;
+    }
+    .card {
         padding: var(--space);
+        border-radius: 12px;
+        max-height: calc(100vh - 48px);
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
     }
 }
 
@@ -66,10 +74,11 @@ body {
    Card container
    ============================================================ */
 .card {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
     border-radius: var(--radius);
     padding: var(--space-lg);
-    box-shadow: 0 8px 24px rgba(2, 6, 23, 0.7);
+    box-shadow: 0 8px 24px rgba(2,6,23,0.7);
+    width: 100%;
 }
 
 /* ============================================================
@@ -80,7 +89,7 @@ header {
     gap: var(--space-lg);
     align-items: center;
     padding-bottom: var(--space-lg);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .avatar {
@@ -90,7 +99,7 @@ header {
     flex-shrink: 0;
     background-size: cover;
     background-position: center;
-    box-shadow: 0 8px 30px rgba(3, 7, 18, 0.6);
+    box-shadow: 0 8px 30px rgba(3,7,18,0.6);
     cursor: pointer;
 }
 
@@ -98,6 +107,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
+    flex: 1;
 }
 
 h1 {
@@ -111,13 +121,21 @@ h1 {
 .muted-username {
     color: var(--muted);
     font-weight: normal;
-    font-size: 0.7em;
+    font-size: 0.8em;
 }
 
 .sub {
     color: var(--muted);
     font-size: 14px;
     line-height: 1.35;
+}
+
+/* smaller header on mobile */
+@media (max-width: 600px) {
+    .avatar { width: 72px; height: 72px; border-radius: 14px; }
+    h1 { font-size: 18px; }
+    .muted-username { font-size: 0.75em; }
+    .sub { font-size: 13px; }
 }
 
 /* ============================================================
@@ -131,28 +149,18 @@ h1 {
 }
 
 @media (max-width: 900px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-    .sidebar {
-        order: 2;
-    }
+    .grid { grid-template-columns: 1fr; }
+    .sidebar { order: 2; }
 }
 
 /* ============================================================
    Main content
    ============================================================ */
-main {
-    padding: 0;
-}
+main { padding: 0; }
 
-.about {
-    margin-top: var(--space);
-}
+.about { margin-top: var(--space); }
 
-.about h3 {
-    margin: 0 0 var(--space-sm) 0;
-}
+.about h3 { margin: 0 0 var(--space-sm) 0; }
 
 .about p {
     color: var(--muted);
@@ -178,14 +186,8 @@ main {
     gap: var(--space-xs);
 }
 
-.stat strong {
-    font-size: 18px;
-}
-
-.stat span {
-    color: var(--muted);
-    font-size: 13px;
-}
+.stat strong { font-size: 18px; }
+.stat span { color: var(--muted); font-size: 13px; }
 
 .stat-emoji {
     width: 32px;
@@ -193,12 +195,15 @@ main {
     object-fit: contain;
 }
 
+/* tighter stat cards on mobile */
+@media (max-width: 600px) {
+    .stat { flex: 1 1 45%; min-width: 120px; padding: var(--space-sm); }
+}
+
 /* ============================================================
    Favorites
    ============================================================ */
-#favorites {
-    margin-top: var(--space-lg);
-}
+#favorites { margin-top: var(--space-lg); }
 
 .favorites {
     display: grid;
@@ -222,22 +227,14 @@ main {
     object-fit: cover;
 }
 
-.fav h4 {
-    margin: 0;
-    font-size: 15px;
-}
+.fav h4 { margin: 0; font-size: 15px; }
+.fav p { margin: 4px 0 0 0; color: var(--muted); font-size: 13px; }
 
-.fav p {
-    margin: 4px 0 0 0;
-    color: var(--muted);
-    font-size: 13px;
-}
-
-/* Stack favorites on mobile */
+/* stack favorites on narrow screens */
 @media (max-width: 600px) {
-    .favorites {
-        grid-template-columns: 1fr;
-    }
+    .favorites { grid-template-columns: 1fr; gap: var(--space-sm); }
+    .fav { padding: var(--space-sm); gap: var(--space-xs); }
+    .fav img { width: 48px; height: 48px; }
 }
 
 /* ============================================================
@@ -259,7 +256,7 @@ main {
 
 .sidebar-divider {
     border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255,255,255,0.05);
     margin: var(--space-sm) 0;
 }
 
@@ -280,21 +277,13 @@ main {
     height: 12px;
     border-radius: 50%;
     background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    box-shadow: 0 0 12px rgba(96, 165, 250, 0.4);
+    box-shadow: 0 0 12px rgba(96,165,250,0.4);
 }
 
-.now-text {
-    font-weight: 600;
-    font-size: 14px;
-}
+.now-text { font-weight: 600; font-size: 14px; }
+.date { color: var(--muted); font-size: 13px; }
 
-.date {
-    color: var(--muted);
-    font-size: 13px;
-}
-
-.top5 h4,
-.contact h4 {
+.top5 h4, .contact h4 {
     margin: 0 0 var(--space-xs) 0;
     font-size: 15px;
     font-weight: 600;
@@ -314,6 +303,12 @@ main {
     margin: 0;
 }
 
+/* sidebar tweaks on mobile */
+@media (max-width: 900px) {
+    .sidebar .card { padding: var(--space); margin-top: var(--space); }
+    .now-block { gap: var(--space); }
+}
+
 /* ============================================================
    Footer + interactions
    ============================================================ */
@@ -324,13 +319,8 @@ main {
     text-align: center;
 }
 
-.pop {
-    transition: transform 0.18s ease;
-}
-
-.pop:hover {
-    transform: translateY(-6px);
-}
+.pop { transition: transform 0.18s ease; }
+.pop:hover { transform: translateY(-6px); }
 
 .wave {
     display: inline-block;
@@ -339,13 +329,10 @@ main {
 }
 
 @keyframes w {
-    0%   { transform: rotate(0); }
-    10%  { transform: rotate(14deg); }
-    20%  { transform: rotate(-8deg); }
-    30%  { transform: rotate(14deg); }
-    40%  { transform: rotate(-4deg); }
-    50%  { transform: rotate(0); }
-    100% { transform: rotate(0); }
+    0%, 50%, 100% { transform: rotate(0); }
+    10%, 30% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    40% { transform: rotate(-4deg); }
 }
 
 /* ============================================================
