@@ -3,94 +3,143 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>About Me - Chase Smith</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-    <link href="main.js" rel="script">
+    <title>About: Chase Smith</title>
 
-</head>
+    <!-- fonts & styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+
+    <!-- Minimal metadata: ONLY games + profile picture (paste into <head>) -->
+    <link rel="canonical" href="https://itsaboutme.site/" />
+
+    <meta name="description" content="Valorant • Rainbow 6 • Minecraft" />
+    <meta name="keywords" content="Valorant, Rainbow 6, Minecraft" />
+    <meta name="theme-color" content="#0f1724" />
+
+    <!-- Open Graph (used by Discord, Slack, Facebook previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Valorant • Rainbow 6 • Minecraft" />
+    <meta property="og:image" content="https://ghost.itsaboutme.site/assets/pfp.png" />
+    <meta property="og:image:alt" content="Profile picture" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Structured data: list of games + profile image (no personal socials or names) -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Games",
+            "image": "https://itsaboutme.site/assets/pfp.png",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Valorant" },
+                { "@type": "ListItem", "position": 2, "name": "Rainbow 6" },
+                { "@type": "ListItem", "position": 3, "name": "Minecraft" }
+            ]
+        }
+    </script>
+
 <body>
 <div class="wrap">
     <section class="card">
         <header>
-            <div class="avatar" id="avatar" style="background-image: url('assets/pfp.png"></div>
-            <div style="flex:1">
-                <h1>Chase Smith <span class="wave">👋</span></h1>
-                <div class="sub">IT Systems & Cybersecurity Student<br>Monster Addict</div>
+            <!-- avatar (clickable) -->
+            <div
+                    class="avatar"
+                    id="avatar"
+                    title="Click to change avatar"
+                    style="background-image: url('assets/pfp.png')"
+            ></div>
+
+            <div class="header-info" style="flex:1">
+                <h1>
+                    Chase Smith
+                </h1>
+
+                <!-- header subtitle with inline monster emoji image -->
+                <div class="sub">
+                    IT Systems &amp; Cybersecurity Student
+                    <br />
+                    <span class="inline-icon">
+              Monster Addict
+            </span>
+                </div>
             </div>
         </header>
 
         <div class="grid">
             <!-- main column -->
             <main>
-                <div class="about" style="margin-top:14px">
+                <div class="about" style="margin-top:14px;">
                     <h3>About me</h3>
-                    <p>Hey! I'm Chase Smith. I’m studying IT Systems & Cybersecurity and like to build stuff, break stuff (somewhat safely), and code stuff sometimes. When I’m not working or doing school work, I’m probably gaming, listening to music, or chugging a monster.</p>
+                    <p>
+                        I build stuff, (mostly) fix stuff, and sometimes break things on purpose.
+                        When I'm off the clock I'm gaming, coding dumb little things that nobody asked for, and sipping too many white Monsters.
+                    </p>
 
                     <div class="fun">
+                        <!-- using the three emoji images for the stats -->
                         <div class="stat">
-                            <strong>👹</strong>
+                            <strong>
+                                <img class="stat-emoji" src="assets/monsteremoji.png" alt="monster" />
+                            </strong>
                             <span>2 cans/day</span>
                         </div>
+
                         <div class="stat">
-                            <strong>🎮</strong>
+                            <strong>
+                                <img class="stat-emoji" src="assets/valorantemoji.png" alt="Valorant" />
+                            </strong>
                             <span>Plat 3</span>
                         </div>
+
                         <div class="stat">
-                            <strong>🎧</strong>
-                            <span>Music: On</span>
+                            <strong>
+                                <img class="stat-emoji" src="assets/rainbowemoji.png" alt="Rainbow Six" />
+                            </strong>
+                            <span>Silver V</span>
                         </div>
                     </div>
                 </div>
 
-                <section id="favorites" style="margin-top:16px">
+                <section id="favorites" style="margin-top:16px;">
                     <h3>Favorites</h3>
+
                     <div class="favorites">
                         <div class="fav pop">
-                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="music">
+                            <img src="assets/musiclist.png" alt="music" />
                             <div>
                                 <h4>Music</h4>
-                                <p>Anything except most rap and country music</p>
+                                <p>Lofi, Pop, &amp; <br>pretty much anything.</p>
                             </div>
                         </div>
 
                         <div class="fav pop">
-                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="games">
+                            <img src="assets/gamelist.png" alt="games" />
                             <div>
                                 <h4>Games</h4>
-                                <p>Valorant, Minecraft, & Rainbow 6.</p>
+                                <p>Valorant, Minecraft, <br>&amp; Rainbow Six Siege.</p>
                             </div>
                         </div>
 
                         <div class="fav pop">
-                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="movies">
+                            <img src="assets/movielist.png" alt="movies" />
                             <div>
                                 <h4>Movies</h4>
-                                <p>Interstellar & Oppenheimer</p>
+                                <p>Interstellar &amp; <br>Oppenheimer.</p>
                             </div>
                         </div>
 
                         <div class="fav pop">
-                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="food">
+                            <img src="assets/foodlist.png" alt="food" />
                             <div>
                                 <h4>Food</h4>
-                                <p>Medium-Rare Steak, Pineapple on Pizza, and anything spicy.</p>
+                                <p>Medium-Rare Steak &amp; Pineapple on Pizza.</p>
                             </div>
                         </div>
                     </div>
                 </section>
-
-<!--
-                <section style="margin-top:18px">
-                    <h3>Fun facts</h3>
-                    <ul style="color:var(--muted); margin-top:8px">
-                        <li>My microphone is the 'Shure SM7B'</li>
-                        <li>Made $2,618 on E-Pal in 2023</li>
-                        <li>I love to play FPS games, but I'm atrociously bad at them  </li>
-                    </ul>
-                </section>
-                -->
             </main>
 
             <!-- sidebar -->
@@ -104,6 +153,7 @@
                                 <div style="font-weight:700">Nothing important, obviously.</div>
                             </div>
                         </div>
+
                         <div style="text-align:right; color:var(--muted); font-size:13px">Aug 30, 2025</div>
                     </div>
 
@@ -123,15 +173,6 @@
                         <div style="color:var(--muted); margin-top:6px">Discord: <strong>ghosthasgone</strong></div>
                     </div>
                 </div>
-<!--
-                <div style="margin-top:12px" class="card">
-                    <h4>Playlist</h4>
-                    <div class="list">
-                        <div class="item"><div style="width:36px;height:36px;border-radius:6px;background:#071229"></div><div style="font-size:14px">temp</div></div>
-                        <div class="item"><div style="width:36px;height:36px;border-radius:6px;background:#071229"></div><div style="font-size:14px">temp</div></div>
-                    </div>
-                </div>
-                -->
             </aside>
         </div>
 
