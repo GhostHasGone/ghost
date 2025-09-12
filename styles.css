@@ -34,20 +34,33 @@ body {
     margin: 0;
     min-height: 100vh;
     display: flex;
-    align-items: center;   /* vertical center */
-    justify-content: center; /* horizontal center */
+    align-items: center;        /* vertical center */
+    justify-content: center;    /* horizontal center */
     background: linear-gradient(180deg, var(--bg) 0%, #071229 100%);
     font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
     color: var(--text);
     -webkit-font-smoothing: antialiased;
     line-height: 1.45;
+    padding: var(--space); /* breathing room on mobile */
 }
 
-/* your main wrapper stays max width constrained */
 .wrap {
     max-width: var(--maxw);
     width: 100%;
     padding: var(--space-lg);
+}
+
+/* === Mobile override === */
+@media (max-width: 768px) {
+    body {
+        display: block; /* stack content normally */
+        padding: var(--space-lg) var(--space); /* top/bottom breathing space */
+    }
+
+    .wrap {
+        margin: 0 auto; /* still center horizontally */
+        padding: var(--space);
+    }
 }
 
 
