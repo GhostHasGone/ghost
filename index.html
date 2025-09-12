@@ -10,35 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <link href="styles.css" rel="stylesheet" />
 
-    <!-- Minimal metadata: ONLY games + profile picture (paste into <head>) -->
-    <link rel="canonical" href="https://itsaboutme.site/" />
-
-    <meta name="description" content="Valorant • Rainbow 6 • Minecraft" />
-    <meta name="keywords" content="Valorant, Rainbow 6, Minecraft" />
-    <meta name="theme-color" content="#0f1724" />
-
-    <!-- Open Graph (used by Discord, Slack, Facebook previews) -->
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="Games: Valorant • Rainbow 6 • Minecraft" />
-    <meta property="og:image" content="https://ghost.itsaboutme.site/assets/pfp.png" />
-    <meta property="og:image:alt" content="Profile picture" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="1200" />
-
-    <!-- Structured data: list of games + profile image (no personal socials or names) -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            "name": "Games",
-            "image": "https://itsaboutme.site/assets/pfp.png",
-            "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Valorant" },
-                { "@type": "ListItem", "position": 2, "name": "Rainbow 6" },
-                { "@type": "ListItem", "position": 3, "name": "Minecraft" }
-            ]
-        }
-    </script>
+    <!-- app script (optional) -->
+    <script src="main.js" defer></script>
+</head>
 
 <body>
 <div class="wrap">
@@ -55,23 +29,23 @@
             <div class="header-info" style="flex:1">
                 <h1>
                     Chase Smith
+                    <span class="muted-username">(GhostHasGone)</span>
                 </h1>
 
-                <!-- header subtitle with inline monster emoji image -->
+                <!-- header subtitle -->
                 <div class="sub">
                     IT Systems &amp; Cybersecurity Student
                     <br />
-                    <span class="inline-icon">
-              Monster Addict
-            </span>
+                    <span class="inline-icon">Monster Addict</span>
                 </div>
             </div>
+
         </header>
 
         <div class="grid">
             <!-- main column -->
             <main>
-                <div class="about" style="margin-top:14px;">
+                <div class="about">
                     <h3>About me</h3>
                     <p>
                         I build stuff, (mostly) fix stuff, and sometimes break things on purpose.
@@ -79,31 +53,24 @@
                     </p>
 
                     <div class="fun">
-                        <!-- using the three emoji images for the stats -->
                         <div class="stat">
-                            <strong>
-                                <img class="stat-emoji" src="assets/monsteremoji.png" alt="monster" />
-                            </strong>
+                            <strong><img class="stat-emoji" src="assets/monsteremoji.png" alt="monster" /></strong>
                             <span>2 cans/day</span>
                         </div>
 
                         <div class="stat">
-                            <strong>
-                                <img class="stat-emoji" src="assets/valorantemoji.png" alt="Valorant" />
-                            </strong>
+                            <strong><img class="stat-emoji" src="assets/valorantemoji.png" alt="Valorant" /></strong>
                             <span>Plat 3</span>
                         </div>
 
                         <div class="stat">
-                            <strong>
-                                <img class="stat-emoji" src="assets/rainbowemoji.png" alt="Rainbow Six" />
-                            </strong>
+                            <strong><img class="stat-emoji" src="assets/rainbowemoji.png" alt="Rainbow Six" /></strong>
                             <span>Silver V</span>
                         </div>
                     </div>
                 </div>
 
-                <section id="favorites" style="margin-top:16px;">
+                <section id="favorites">
                     <h3>Favorites</h3>
 
                     <div class="favorites">
@@ -111,7 +78,7 @@
                             <img src="assets/musiclist.png" alt="music" />
                             <div>
                                 <h4>Music</h4>
-                                <p>Lofi, Pop, &amp; <br>pretty much anything.</p>
+                                <p>Lofi, Pop, &amp; pretty much anything.</p>
                             </div>
                         </div>
 
@@ -119,7 +86,7 @@
                             <img src="assets/gamelist.png" alt="games" />
                             <div>
                                 <h4>Games</h4>
-                                <p>Valorant, Minecraft, <br>&amp; Rainbow Six Siege.</p>
+                                <p>Valorant, Minecraft, &amp; Rainbow Six Siege.</p>
                             </div>
                         </div>
 
@@ -127,7 +94,7 @@
                             <img src="assets/movielist.png" alt="movies" />
                             <div>
                                 <h4>Movies</h4>
-                                <p>Interstellar &amp; <br>Oppenheimer.</p>
+                                <p>Interstellar &amp; Oppenheimer.</p>
                             </div>
                         </div>
 
@@ -144,41 +111,45 @@
 
             <!-- sidebar -->
             <aside class="sidebar">
-                <div class="card">
-                    <div style="display:flex; justify-content:space-between; align-items:center">
-                        <div>
-                            <div class="small">Now</div>
-                            <div class="now" style="margin-top:8px">
-                                <div class="dot"></div>
-                                <div style="font-weight:700">Nothing important, obviously.</div>
-                            </div>
+                <div class="card sidebar-card">
+                    <!-- Now Section -->
+                    <div class="sidebar-section now-block">
+                        <div class="now">
+                            <div class="dot"></div>
+                            <div class="now-text">Doing Nothing Important, Obviously.</div>
                         </div>
-
-                        <div style="text-align:right; color:var(--muted); font-size:13px">Aug 30, 2025</div>
                     </div>
 
-                    <div style="margin-top:12px">
-                        <h4>Top 5 right now</h4>
-                        <ol style="color:var(--muted); margin-top:8px">
-                            <li>Song: Overnight - TheBigSadxxx</li>
-                            <li>Game: Valorant</li>
-                            <li>Snack: Kettle Cooked Chips</li>
-                            <li>Tool: Webstorm</li>
-                            <li>Language: Python</li>
+                    <!-- Divider -->
+                    <hr class="sidebar-divider" />
+
+                    <!-- Top 5 -->
+                    <div class="sidebar-section top5">
+                        <h4>Top 5 Right Now</h4>
+                        <ol class="muted-list">
+                            <li><strong>Song:</strong> Voodoo - Godsmack</li>
+                            <li><strong>Game:</strong> Rainbow Six Siege</li>
+                            <li><strong>Snack:</strong> Wings</li>
+                            <li><strong>Tool:</strong> Webstorm</li>
+                            <li><strong>Language:</strong> Python</li>
                         </ol>
                     </div>
 
-                    <div style="margin-top:12px">
+                    <!-- Divider -->
+                    <hr class="sidebar-divider" />
+
+                    <!-- Contact -->
+                    <div class="sidebar-section contact">
                         <h4>Contact</h4>
-                        <div style="color:var(--muted); margin-top:6px">Discord: <strong>ghosthasgone</strong></div>
+                        <p class="muted-text"><strong>Discord:</strong> ghosthasgone<br>
+                        <strong>Email:</strong> ghosthasgone2107@gmail.com</p>
                     </div>
                 </div>
             </aside>
+
         </div>
 
-        <footer style="margin-top:14px; text-align:center; color:var(--muted)">
-            itsaboutme.site © 2025
-        </footer>
+        <footer class="site-footer">itsaboutme.site © 2025</footer>
     </section>
 </div>
 </body>

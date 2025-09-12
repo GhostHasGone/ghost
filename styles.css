@@ -1,52 +1,80 @@
-/* ============================
-   Root variables
-   ============================ */
+/* ============================================================
+   Spacing scale + colors
+   ============================================================ */
 :root {
+    /* colors */
     --bg: #0f1724;
     --card: #0b1220;
     --accent: #6EE7B7;
-    --accent-2: #60A5FA;
+    --accent-2: #2c61a8;
     --muted: #9aa6bd;
     --text: #e6eef8;
     --glass: rgba(255, 255, 255, 0.03);
     --radius: 14px;
     --maxw: 1000px;
+
+    /* spacing scale (use these consistently) */
+    --space-xxs: 4px;
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space: 16px;      /* base */
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-xxl: 48px;
 }
 
-/* ============================
-   Base / layout
-   ============================ */
-* { box-sizing: border-box; }
+/* ============================================================
+   Base / reset
+   ============================================================ */
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    display: flex;
+    align-items: center;   /* vertical center */
+    justify-content: center; /* horizontal center */
     background: linear-gradient(180deg, var(--bg) 0%, #071229 100%);
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
     color: var(--text);
     -webkit-font-smoothing: antialiased;
+    line-height: 1.45;
 }
 
+/* your main wrapper stays max width constrained */
 .wrap {
     max-width: var(--maxw);
-    margin: 32px auto;
-    padding: 20px;
+    width: 100%;
+    padding: var(--space-lg);
 }
+
 
 .card {
     background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
     border-radius: var(--radius);
-    padding: 18px;
-    box-shadow: 0 8px 24px rgba(2,6,23,0.7);
+    padding: var(--space-lg);
+    box-shadow: 0 8px 24px rgba(2, 6, 23, 0.7);
 }
 
-/* ============================
-   Header / avatar
-   ============================ */
+/* ============================================================
+   Header / avatar / titles
+   ============================================================ */
 header {
     display: flex;
-    gap: 18px;
+    gap: var(--space-lg);
     align-items: center;
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+/* Muted username inside header */
+.muted-username {
+    color: var(--muted);
+    font-weight: normal;
+    font-size: 0.6em;
+    margin-left: 6px;
 }
 
 .avatar {
@@ -57,31 +85,36 @@ header {
     flex-shrink: 0;
     background-size: cover;
     background-position: center;
-    box-shadow: 0 8px 30px rgba(3,7,18,0.6);
+    box-shadow: 0 8px 30px rgba(3, 7, 18, 0.6);
     cursor: pointer;
-    transition: transform .12s ease;
 }
 
-.avatar:hover { transform: scale(1.1); }
+.header-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
 
-.header-info h1 { margin: 0; font-size: 28px; }
-.sub { color: var(--muted); margin-top: 6px; font-size: 18px; }
+h1 {
+    margin: 0;
+    font-size: 22px;
+}
 
-/* small inline icon helper */
-.inline-icon { display: inline-flex; align-items: center; gap: 8px; }
-.emoji { display: inline-block; width: 20px; height: 20px; object-fit: contain; vertical-align: middle; }
+.sub {
+    color: var(--muted);
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.35;
+}
 
-/* stat / emoji sizing */
-.stat-emoji { width: 34px; height: 34px; object-fit: contain; display: inline-block; }
-
-/* ============================
+/* ============================================================
    Grid layout
-   ============================ */
+   ============================================================ */
 .grid {
     display: grid;
     grid-template-columns: 1fr 360px;
-    gap: 18px;
-    margin-top: 18px;
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
 }
 
 @media (max-width: 900px) {
@@ -89,78 +122,229 @@ header {
     .sidebar { order: 2; }
 }
 
-/* ============================
-   About / favorites
-   ============================ */
-.about p { color: var(--muted); margin-top: 6px; }
+/* ============================================================
+   Main content spacing
+   ============================================================ */
+main { padding: 0; }
 
-.favorites {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-top: 12px;
+.about {
+    margin-top: var(--space);
 }
 
-.fav {
-    background: var(--card);
-    padding: 12px;
-    border-radius: 10px;
+.about h3 {
+    margin: 0 0 var(--space-sm) 0;
+}
+
+.about p {
+    color: var(--muted);
+    margin: 0 0 var(--space-lg) 0;
+}
+
+/* Fun stats (consistent internal spacing) */
+.fun {
     display: flex;
-    gap: 10px;
-    align-items: center;
+    gap: var(--space);
+    margin-top: var(--space-sm);
 }
-
-.fav img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
-.fav h4 { margin: 0; font-size: 15px; }
-.fav p { margin: 4px 0 0 0; color: var(--muted); font-size: 13px; }
-
-/* ============================
-   Fun facts / stats
-   ============================ */
-.fun { display: flex; gap: 10px; margin-top: 12px; }
 
 .stat {
     flex: 1;
     background: var(--glass);
-    padding: 12px;
+    padding: var(--space);
     border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.stat strong {
+    display: block;
+    font-size: 18px;
+}
+
+.stat span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* emoji / icon sizing */
+.stat-emoji {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    display: inline-block;
+}
+
+/* ============================================================
+   Favorites (cards)
+   ============================================================ */
+#favorites { margin-top: var(--space-lg); }
+
+.favorites {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space);
+}
+
+.fav {
+    background: var(--card);
+    padding: var(--space);
+    border-radius: 10px;
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+.fav img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.fav h4 { margin: 0; font-size: 15px; }
+
+.fav p {
+    margin: 4px 0 0 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ============================================================
+   Sidebar
+   ============================================================ */
+.sidebar .card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    background: var(--card);
+}
+
+/* Sidebar section blocks */
+.sidebar-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+/* Divider between sections */
+.sidebar-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin: var(--space-sm) 0;
+}
+
+/* Now block */
+.now-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.now {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+}
+
+.now .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    box-shadow: 0 0 12px rgba(96,165,250,0.4);
+}
+
+.now-text {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.date {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* Top 5 list */
+.top5 h4 {
+    margin: 0 0 var(--space-xs) 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.muted-list {
+    margin: 0;
+    padding-left: var(--space-lg);
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Contact */
+.contact h4 {
+    margin: 0 0 var(--space-xs) 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.contact .muted-text {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   Footer / small interactions
+   ============================================================ */
+.site-footer {
+    margin-top: var(--space-lg);
+    color: var(--muted);
+    font-size: 13px;
     text-align: center;
 }
 
-.stat strong { display: block; font-size: 18px; }
-.stat span { color: var(--muted); font-size: 13px; }
-
-/* ============================
-   Sidebar / small components
-   ============================ */
-.sidebar .card { padding: 14px; }
-.now { display:flex; gap:12px; align-items:center; }
-.now .dot {
-    width: 12px; height: 12px; border-radius: 50%;
-    background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    box-shadow: 0 6px 20px rgba(96,165,250,0.14);
+.pop {
+    transition: transform .18s ease;
 }
 
-.list { margin-top:12px; display:flex; flex-direction:column; gap:8px; }
-.list .item { display:flex; gap:10px; align-items:center; padding:8px; border-radius:10px; background:rgba(255,255,255,0.01); }
+.pop:hover {
+    transform: translateY(-6px);
+}
 
-.small { color: var(--muted); font-size: 13px; }
+/* wave animation (unchanged except formatting) */
+.wave {
+    display: inline-block;
+    transform-origin: 70% 70%;
+    animation: w 2s linear infinite;
+}
 
-/* ============================
-   Footer / animations
-   ============================ */
-footer { margin-top: 18px; color: var(--muted); font-size: 13px; text-align:center; }
-
-.wave { display:inline-block; transform-origin:70% 70%; animation:w 2s linear infinite; }
 @keyframes w {
-    0% { transform: rotate(0); }
-    10% { transform: rotate(14deg); }
-    20% { transform: rotate(-8deg); }
-    30% { transform: rotate(14deg); }
-    40% { transform: rotate(-4deg); }
-    50% { transform: rotate(0); }
+    0%   { transform: rotate(0); }
+    10%  { transform: rotate(14deg); }
+    20%  { transform: rotate(-8deg); }
+    30%  { transform: rotate(14deg); }
+    40%  { transform: rotate(-4deg); }
+    50%  { transform: rotate(0); }
     100% { transform: rotate(0); }
 }
 
-.pop { transition: transform .18s ease; }
-.pop:hover { transform: translateY(-6px); }
+.rawr {
+    position: absolute;
+    font-family: "Comic Sans MS", "Papyrus", cursive; /* funny font */
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--accent-2);
+    pointer-events: none; /* clicks pass through */
+    animation: rawr-pop 1.2s ease forwards;
+}
+
+@keyframes rawr-pop {
+    0%   { transform: scale(0.5) translateY(0); opacity: 1; }
+    60%  { transform: scale(1.2) translateY(-20px); opacity: 1; }
+    100% { transform: scale(1) translateY(-40px); opacity: 0; }
+}
